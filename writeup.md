@@ -91,9 +91,10 @@ I chose to use the Adam optimizer. The main advantage of Adam optimizer here is 
 
 The code for calculating the accuracy of the model is located in the 6th cell of the Ipython notebook.
 
-My final model results were:
-* validation set accuracy of 0.949 
-* test set accuracy of 0.933 
+My final model results were:  
+
+* validation set accuracy of 0.958  
+* test set accuracy of 0.939 
 
 ###Test the Model on New Images
 
@@ -104,6 +105,8 @@ Here are five German traffic signs that I found on the web:
 ![alt text][image2] ![alt text][image3] ![alt text][image4] 
 ![alt text][image5] ![alt text][image6]
 
+Note that the images shown here are full scale images, where as since the model only expectes 32x32 images, they are resized as shown in the IPython notebook. The resolution decrease may pose difficulty to the model when it comes to prediction, especially for 1st and 4th image, where the shape of the person is largely distorted, although still recognizable to human eyes.
+
 ####Prediction
 
 The code for making predictions on my final model is located in the 6th cell of the Ipython notebook.
@@ -112,11 +115,13 @@ Here are the results of the prediction:
 
 | Image			        |     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
-| Traffic Sign 1      		| 11 (Right-of-way at the next intersection)   									| 
+| Traffic Sign 1      		| 27 (Pedestrians)   									| 
 | Traffic Sign 2     			| 3 (Speed limit 60km/h) 										|
 | Traffic Sign 3					| 38 (Keep right)											|
 | Traffic Sign 4	      		| 28 (Children crossing)					 				|
 | Traffic Sign 5			| 18 (General caution)      							|
 
 
-The model was able to correctly guess 3 of the 5 traffic signs, which gives an accuracy of 60%. This is significantly lower than the test accuracy of 93.3%. It is worth noting that the sample is small here (5 images), which may contribute to the lower than expected accuracy.
+The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This is significantly lower than the test accuracy of 93.3%. It is worth noting that the sample is small here (5 images), which may contribute to the lower than expected accuracy.
+
+The model showed very high confidence in four image predictions (sign 1, 2, 4, 5), all above 99%, while the prediction for sign 3 is 83.7%. This aligns well with the fact that it made a wrong prediction on the 3rd image.

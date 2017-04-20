@@ -11802,7 +11802,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load pickled data</span>
@@ -11881,11 +11881,13 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Replace each question mark with the appropriate value. </span>
 <span class="c1">### Use python, pandas or numpy methods rather than hard coding the results</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
 
 <span class="c1"># TODO: Number of training examples</span>
 <span class="n">n_train</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
@@ -11930,7 +11932,7 @@ Number of classes = 43
 </div>
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[10]:</div>
+<div class="prompt output_prompt">Out[4]:</div>
 
 
 
@@ -12086,7 +12088,7 @@ VdW7V/rxWZUhIEkazmqcDpIkDckQkKSGGQKS1DBDQJIaZghIUsMMAUlqmCEgSQ0zBCSpYf8fsqq9
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Data exploration visualization code goes here.</span>
@@ -12296,7 +12298,7 @@ FMr/A2oQYr/XbnhvAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Preprocess the data here. Preprocessing steps could include normalization, converting to grayscale, etc.</span>
@@ -12332,7 +12334,7 @@ FMr/A2oQYr/XbnhvAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Define your architecture here.</span>
@@ -12433,7 +12435,7 @@ sets imply underfitting. A high accuracy on the training set but low accuracy on
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Train your model here.</span>
@@ -12503,7 +12505,7 @@ sets imply underfitting. A high accuracy on the training set but low accuracy on
     <span class="n">imgs</span> <span class="o">=</span> <span class="n">preprocess</span><span class="p">(</span><span class="n">imgs</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">imgs</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>    
    
-    <span class="n">predicts</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">imgs</span><span class="p">,</span> <span class="n">keep_prob</span><span class="p">:</span><span class="mf">1.0</span><span class="p">})</span>
+    <span class="n">predicts</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">logits</span><span class="p">),</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">imgs</span><span class="p">,</span> <span class="n">keep_prob</span><span class="p">:</span><span class="mf">1.0</span><span class="p">})</span>
     <span class="n">predicts</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">top_k</span><span class="p">(</span><span class="n">predicts</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="nb">sorted</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">predicts</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
     <span class="nb">print</span><span class="p">()</span>
@@ -12523,17 +12525,17 @@ sets imply underfitting. A high accuracy on the training set but low accuracy on
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Training...
-EPOCH 1: Validation accuracy 0.817 in 13.27s
-EPOCH 2: Validation accuracy 0.884 in 13.22s
-EPOCH 3: Validation accuracy 0.917 in 13.31s
-EPOCH 4: Validation accuracy 0.939 in 13.38s
-EPOCH 5: Validation accuracy 0.936 in 13.38s
-EPOCH 6: Validation accuracy 0.944 in 13.34s
-EPOCH 7: Validation accuracy 0.947 in 13.35s
-EPOCH 8: Validation accuracy 0.950 in 13.64s
-EPOCH 9: Validation accuracy 0.959 in 13.65s
-EPOCH 10: Validation accuracy 0.949 in 13.5s
-Test accuracy 0.933
+EPOCH 1: Validation accuracy 0.793 in 12.96s
+EPOCH 2: Validation accuracy 0.897 in 12.88s
+EPOCH 3: Validation accuracy 0.929 in 12.95s
+EPOCH 4: Validation accuracy 0.928 in 12.95s
+EPOCH 5: Validation accuracy 0.935 in 12.94s
+EPOCH 6: Validation accuracy 0.943 in 12.95s
+EPOCH 7: Validation accuracy 0.941 in 12.96s
+EPOCH 8: Validation accuracy 0.954 in 13.0s
+EPOCH 9: Validation accuracy 0.939 in 13.02s
+EPOCH 10: Validation accuracy 0.958 in 13.05s
+Test accuracy 0.939
 </pre>
 </div>
 </div>
@@ -13304,17 +13306,22 @@ ywEsy/+cUOxjEplHUY8JgLnINcVdjtwLzXe3es4+B+AtAL8EUD6S/egbfkIkFH3DT4iEouQXIqEo
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>(5, 32, 32, 1)
-[[ 21.22447205  16.53992081  12.16242695   5.19128084   3.67805481]
- [  4.35184908   2.9600234    2.50248408   1.75562882   1.61396873]
- [  0.71181947   0.5797627    0.27903289  -0.32702431  -0.33868563]
- [ 20.03760338   6.68282843  -1.45976877  -2.24459314  -2.32206464]
- [ 40.73178101  27.21694183   7.57441664   3.32295489   1.94814968]]
+[[  9.99976277e-01   2.28659774e-05   3.66618565e-07   2.97876909e-07
+    1.66413798e-07]
+ [  9.95619357e-01   2.42703408e-03   1.95275340e-03   7.33442619e-07
+    1.53513781e-07]
+ [  8.37162971e-01   1.05617724e-01   1.47756198e-02   8.90268944e-03
+    7.10128853e-03]
+ [  9.99698281e-01   3.01646418e-04   2.62021445e-08   2.29398633e-08
+    1.07076152e-08]
+ [  1.00000000e+00   2.71168901e-08   3.65009244e-18   2.22168470e-18
+    1.69518404e-20]]
 
-[[11 27 18 30 26]
- [ 3 35  9 23 10]
- [38 18 25 17 12]
- [28 29 30 36 24]
- [18 26 27 33 11]]
+[[27 11 24 18 26]
+ [ 3  5  2  9  1]
+ [38 40 25 18 12]
+ [28 35  3 20 29]
+ [18 26 27 24 25]]
 </pre>
 </div>
 </div>
@@ -13390,7 +13397,7 @@ a = np.array([[ 0.24879643,  0.07032244,  0.12641572,  0.34763842,  0.07893497,
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Print out the top five softmax probabilities for the predictions on the German traffic sign images found on the web. </span>
@@ -13427,7 +13434,7 @@ a = np.array([[ 0.24879643,  0.07032244,  0.12641572,  0.34763842,  0.07893497,
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### Visualize your network&#39;s feature maps here.</span>
